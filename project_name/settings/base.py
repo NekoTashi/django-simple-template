@@ -101,7 +101,7 @@ STATICFILES_DIRS = (
 	os.path.join(BASE_DIR, 'static'),
 )
 
-MEDIA_URL = 'media'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.environ.get('MEDIA_ROOT', os.path.join(BASE_DIR, 'media'))
 
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
