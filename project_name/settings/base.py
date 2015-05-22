@@ -24,9 +24,6 @@ INSTALLED_APPS = (
 
 	# Dependecies.
 	'django_extensions',
-	'allauth',
-	'allauth.account',
-	'allauth.socialaccount',
 
 	# Apps.
 	#'{{ project_name }}.apps.<app_name>',
@@ -60,8 +57,6 @@ TEMPLATES = [
 				'django.template.context_processors.request',
 				'django.contrib.auth.context_processors.auth',
 				'django.contrib.messages.context_processors.messages',
-				'allauth.account.context_processors.account',
-				'allauth.socialaccount.context_processors.socialaccount',
 			],
 			'debug': os.environ.get('DEBUG', True),
 			'loaders': (
@@ -118,8 +113,7 @@ ADMINS = (
 )
 
 AUTHENTICATION_BACKENDS = (
-	"django.contrib.auth.backends.ModelBackend",
-	"allauth.account.auth_backends.AuthenticationBackend",
+	'django.contrib.auth.backends.ModelBackend',
 )
 
 LOGGING = {
