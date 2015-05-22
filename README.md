@@ -1,6 +1,6 @@
 # django-simple-template
 
-Template para comenzar de manera sencilla un proyecto Django en la versión 1.8.
+Template para comenzar de manera sencilla y ordenada un proyecto Django en la versión 1.8.
 
 ## Uso
 
