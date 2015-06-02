@@ -26,7 +26,7 @@ INSTALLED_APPS = (
 	'django_extensions',
 
 	# Apps.
-	#'{{ project_name }}.apps.<app_name>',
+	# '{{ project_name }}.apps.<app_name>',
 )
 
 SITE_ID = 1
@@ -59,10 +59,6 @@ TEMPLATES = [
 				'django.contrib.messages.context_processors.messages',
 			],
 			'debug': os.environ.get('DEBUG', True),
-			'loaders': (
-				'django.template.loaders.filesystem.Loader',
-				'django.template.loaders.app_directories.Loader',
-			),
 			'string_if_invalid': 'Invalid variable!',
 		},
 	},
@@ -73,7 +69,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'yourdatabasename.db'),
+		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 	}
 	# 'default': {
 	# 	'ENGINE': 'django.db.backends.postgresql_psycopg2',
