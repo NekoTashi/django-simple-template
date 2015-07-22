@@ -14,71 +14,71 @@ DEBUG = os.environ.get('DEBUG', True)
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
-	'django.contrib.admin',
-	'django.contrib.auth',
-	'django.contrib.contenttypes',
-	'django.contrib.sessions',
-	'django.contrib.messages',
-	'django.contrib.staticfiles',
-	'django.contrib.sites',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.sites',
 
-	# Dependecies.
-	'django_extensions',
+    # Dependecies.
+    'django_extensions',
 
-	# Apps.
-	# '{{ project_name }}.apps.<app_name>',
+    # Apps.
+    # '{{ project_name }}.apps.<app_name>',
 )
 
 SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
-	'django.contrib.sessions.middleware.SessionMiddleware',
-	'django.middleware.common.CommonMiddleware',
-	'django.middleware.csrf.CsrfViewMiddleware',
-	'django.contrib.auth.middleware.AuthenticationMiddleware',
-	'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-	'django.contrib.messages.middleware.MessageMiddleware',
-	'django.middleware.clickjacking.XFrameOptionsMiddleware',
-	'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = '{{ project_name }}.urls'
 
 TEMPLATES = [
-	{
-		'BACKEND': 'django.template.backends.django.DjangoTemplates',
-		'DIRS': [
-			os.path.join(BASE_DIR, 'templates'),
-		],
-		'APP_DIRS': True,
-		'OPTIONS': {
-			'context_processors': [
-				'django.template.context_processors.debug',
-				'django.template.context_processors.request',
-				'django.contrib.auth.context_processors.auth',
-				'django.contrib.messages.context_processors.messages',
-			],
-			'debug': os.environ.get('DEBUG', True),
-			'string_if_invalid': 'Invalid variable!',
-		},
-	},
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+            'debug': os.environ.get('DEBUG', True),
+            'string_if_invalid': 'Invalid variable!',
+        },
+    },
 ]
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-	}
-	# 'default': {
-	# 	'ENGINE': 'django.db.backends.postgresql_psycopg2',
-	# 	'NAME': os.environ.get('DATABASE_NAME', '{{ project_name }}'),
-	# 	'USER': os.environ.get('DATABASE_USER', '{{ project_name }}'),
-	# 	'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'password'),
-	# 	'HOST': os.environ.get('DATABASE_HOST', '127.0.0.1'),
-	# 	'PORT': os.environ.get('DATABASE_PORT', '5432'),
-	# }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+    # 'default': {
+    #   'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #   'NAME': os.environ.get('DATABASE_NAME', '{{ project_name }}'),
+    #   'USER': os.environ.get('DATABASE_USER', '{{ project_name }}'),
+    #   'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'password'),
+    #   'HOST': os.environ.get('DATABASE_HOST', '127.0.0.1'),
+    #   'PORT': os.environ.get('DATABASE_PORT', '5432'),
+    # }
 }
 
 LANGUAGE_CODE = 'en-us'
@@ -89,7 +89,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 MEDIA_URL = '/media/'
@@ -105,58 +105,58 @@ DEFAULT_FROM_EMAIL = 'Info <info@email.com>'
 SERVER_EMAIL = 'Alerts <alerts@email.com>'
 
 ADMINS = (
-	('Admin', 'admin@email.com'),
+    ('Admin', 'admin@email.com'),
 )
 
 AUTHENTICATION_BACKENDS = (
-	'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 LOGGING = {
-	'version': 1,
-	'disable_existing_loggers': False,
-	'formatters': {
-		'default': {
-			'format': '%(asctime)s  [%(name)s:%(lineno)s]  %(levelname)s - %(message)s',
-		},
-		'simple': {
-			'format': '%(levelname)s %(message)s',
-		},
-	},
-	'filters': {
-		'require_debug_false': {
-			'()': 'django.utils.log.RequireDebugFalse',
-		}
-	},
-	'handlers': {
-		'null': {
-			'level': 'DEBUG',
-			'class': 'logging.NullHandler',
-		},
-		'console': {
-			'level': 'INFO',
-			'class': 'logging.StreamHandler',
-			'formatter': 'default',
-		},
-		'mail_admins': {
-			'level': 'ERROR',
-			'filters': ['require_debug_false'],
-			'class': 'django.utils.log.AdminEmailHandler',
-		}
-	},
-	'loggers': {
-		'django.security.DisallowedHost': {
-			'handlers': ['null'],
-			'propagate': False,
-		},
-		'django.request': {
-			'handlers': ['mail_admins'],
-			'level': 'ERROR',
-			'propagate': True,
-		},
-		'': {
-			'handlers': ['console', ],
-			'level': 'INFO',
-		}
-	}
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'default': {
+            'format': '%(asctime)s  [%(name)s:%(lineno)s]  %(levelname)s - %(message)s',
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s',
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        }
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'default',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+        }
+    },
+    'loggers': {
+        'django.security.DisallowedHost': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        '': {
+            'handlers': ['console', ],
+            'level': 'INFO',
+        }
+    }
 }
